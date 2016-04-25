@@ -4,7 +4,7 @@
 'use strict';
 
 function getInput() {
-    console.log("Please choose either 'rock', 'paper', or 'scissors'.")
+    console.log("Please choose either 'rock', 'paper', or 'scissors'.");
     return prompt();
 }
 function randomPlay() {
@@ -21,28 +21,28 @@ function randomPlay() {
 /*           Write Your Code Below            */
 ////////////////////////////////////////////////
 
-function getPlayerMove(playerMove) {
+function getPlayerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `getInput()`.
 
-    if (playerMove === false) {
+    if (move === false) {
         getInput();
-    } else if (playerMove === true) {
-        return playerMove;
+    } else if (move === true) {
+        return move;
     }
 
 }
 
-function getComputerMove(computerMove) {
+function getComputerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
 
-    if (computerMove === false) {
+    if (move === false) {
         randomPlay();
-    } else if (computerMove === true) {
-        return computerMove;
+    } else if (move === true) {
+        return move;
     }
 }
 
@@ -52,6 +52,26 @@ function getWinner(playerMove,computerMove) {
     // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
     /* YOUR CODE HERE */
+
+    var x = 'rock';
+    var y = 'paper';
+    var z = 'scissors';
+
+    if ((playerMove === x && computerMove === z)
+        || (playerMove === y && computerMove === x)
+        || (playerMove === z && computerMove === y)) {
+        winner = 'player';
+    }
+    else if ((playerMove === z && computerMove === x)
+        || (playerMove === x && computerMove === y)
+        || (playerMove === y && computerMove === z)) {
+        winner = 'computer';
+    }
+    else { winner = 'everyone, it is a tie'; 
+    }
+
+    console.log("This game goes to " + winner + "!");
+
     return winner;
 }
 
